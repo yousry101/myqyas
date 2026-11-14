@@ -1,0 +1,4 @@
+import type { UseFormRegisterReturn } from 'react-hook-form';
+import { CircleAlert } from 'lucide-react';
+interface Props { label: string; unit?: string; registration: UseFormRegisterReturn; error?: string; step?: string; type?: string }
+export default function Field({label,unit,registration,error,step='any',type='number'}:Props) { const id=`field-${registration.name}`; return <div className="field"><label htmlFor={id}>{label}</label><div className="input-wrap"><input id={id} type={type} step={type==='number'?step:undefined} {...registration} aria-invalid={!!error} aria-describedby={error?`${id}-error`:undefined}/>{unit && <span className="input-unit">{unit}</span>}</div>{error && <span className="error flex items-start gap-1" id={`${id}-error`}><CircleAlert size={13} className="shrink-0 mt-1"/>{error}</span>}</div>; }

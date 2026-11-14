@@ -1,0 +1,3 @@
+import { FileDown, Droplets } from 'lucide-react';
+interface Props { title: string; description: string }
+export default function PageHeading({title,description}:Props) { return <><div className="report-only"><h1>مِقياس · تقرير التحليل الهيدروليكي</h1><p>تاريخ التقرير: {new Date().toLocaleDateString('ar-EG')} · وحدات SI</p></div><div className="page-heading"><div><div className="eyebrow"><Droplets size={14}/> التحليل الهيدروليكي للترع</div><h1>{title}</h1><p className="description">{description}</p></div><button className="btn no-print" onClick={()=>window.print()}><FileDown size={17}/><span>تقرير هندسي</span></button></div></>; }
